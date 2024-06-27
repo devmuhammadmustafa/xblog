@@ -5,7 +5,7 @@
         @foreach($posts as $post)
             <article class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
-                <a href="{{route("post", $post->slug)}}" class="effect-lily tm-post-link tm-pt-60">
+                <a href="{{route("post", [$post->slug])}}" class="effect-lily tm-post-link tm-pt-60">
                     <div class="tm-post-link-inner">
                         <img src="{{$post->image}}" alt="Image" class="img-fluid">
                     </div>
@@ -15,12 +15,11 @@
                 <p class="tm-pt-30">
 
                     {!! Str::limit($post->description, 180) !!}
+
                 </p>
                 <div class="d-flex justify-content-between tm-pt-45">
                     <span class="tm-color-primary">
-                        @foreach($categories as $key=> $category)
-                            {{$category->title}} @if(count($post->categories) != $key+1). @endif
-                        @endforeach
+                        @include("partials.category", ['categories' => $post->categories])
                     </span>
 {{--                    June 24, 2020--}}
                     <span class="tm-color-primary">{{$post->created_at->format('M d, Y')}}</span>
