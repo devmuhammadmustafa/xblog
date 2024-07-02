@@ -5,6 +5,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
 <link href="{{asset("assets/css/bootstrap.min.css")}}" rel="stylesheet">
 <link href="{{asset("assets/css/templatemo-xtra-blog.css")}}" rel="stylesheet">
+@stack('css')
 <!--
 
 TemplateMo 553 Xtra Blog

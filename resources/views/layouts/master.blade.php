@@ -15,6 +15,6 @@
 </div>
 <script src="{{asset("assets/js/jquery.min.js")}}"></script>
 <script src="{{asset("assets/js/templatemo-script.js")}}"></script>
-
+@stack('js')
 </body>
 </html>

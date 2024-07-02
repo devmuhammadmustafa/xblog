@@ -22,8 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name("homepage");
 Route::get('/about', [AboutController::class, 'index'])->name("aboutpage");
 Route::get('/contact', [ContactController::class, 'index'])->name("contactpage");
+Route::post('/contact/store', [ContactController::class, 'store'])->name("contact.store");
 Route::get('/post/{slug}', [PostController::class, 'index'])->name("post");
 Route::get('/category/{slug}', [CategoryController::class, 'index'])->name("category");
 Route::post('/comment', [CommentController::class, 'store'])->name("comment.store");
+
 
 

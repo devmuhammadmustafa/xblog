@@ -12,9 +12,8 @@
             <div class="tm-post-full">
                 <div class="mb-4">
                     <h2 class="pt-2 tm-color-primary tm-post-title">{{$post->title}}</h2>
-                    <p class="tm-mb-40">June 16, 2020 posted by {{$post->user->name}}</p>
+                    <p class="tm-mb-40">{{$post->created_at->format("M d, Y")}} posted by {{$post->user->name}}</p>
                     {!! $post->description !!}
-{{--                    {{$post->description}}--}}
                     <span class="d-block text-right tm-color-primary">
                         @include("partials.category", ['categories' => $post->categories])
                     </span>

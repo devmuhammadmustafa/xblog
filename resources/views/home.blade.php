@@ -9,7 +9,10 @@
                     <div class="tm-post-link-inner">
                         <img src="{{$post->image}}" alt="Image" class="img-fluid">
                     </div>
-                    <span class="position-absolute tm-new-badge">New</span>
+
+                    @if(Helper::differDate((int)$post->created_at->timestamp) <= 5)
+                        <span class="position-absolute tm-new-badge">New</span>
+                    @endif
                     <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{$post->title}}</h2>
                 </a>
                 <p class="tm-pt-30">
@@ -37,6 +40,8 @@
             <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next disabled tm-mr-20">Prev</a>
             <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Next</a>
         </div>
+
+        {{ $posts->links() }}
         <div class="tm-paging-wrapper">
             <span class="d-inline-block mr-3">Page</span>
             <nav class="tm-paging-nav d-inline-block">

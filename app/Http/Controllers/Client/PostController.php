@@ -12,6 +12,9 @@ class PostController extends Controller
     public function index($slug) {
 
         $post = Post::with(['user', 'categories','comments'])->where("slug", $slug)->firstOrFail();
+//        if(!$post) {
+//            abort(403);
+//        }
         $categories = Category::all();
 
         $latestPosts = Post::orderBy("id", "desc")->limit(3)->get();
