@@ -1,24 +1,27 @@
 @extends("layouts.master")
 @section("title", "Contact")
+
 @section("content")
-    <div class="row tm-row tm-mb-45">
+    <div class="row  tm-row tm-mb-45">
         <div class="col-12">
             <hr class="tm-hr-primary tm-mb-55">
             <div class="gmap_canvas"> <!-- Google Map -->
                 <iframe width="100%" height="477" id="gmap_canvas"
-                        src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        src="{{$setting->map}}"
                         frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
             </div>
         </div>
     </div>
-    <div class="row tm-row tm-mb-120">
+    <div class="row tm-row tm-mb-120 tessttt">
         <div class="col-12">
             <h2 class="tm-color-primary tm-post-title tm-mb-60">Contact Us</h2>
         </div>
         <div class="col-lg-7 tm-contact-left">
-            <form method="POST" action="" class="mb-5 ml-auto mr-0 tm-contact-form">
+         @include("partials.message")
+            <form method="POST" action="{{route("contact.store")}}" class="mb-5 ml-auto mr-0 tm-contact-form">
+                @csrf
                 <div class="form-group row mb-4">
-                    <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Name</label>
+                    <label for="name" class="col-sm-3 col-form-label text-right tm-color-primary">Name}</label>
                     <div class="col-sm-9">
                         <input class="form-control mr-0 ml-auto" name="name" id="name" type="text" required>
                     </div>
@@ -32,7 +35,7 @@
                 <div class="form-group row mb-4">
                     <label for="subject" class="col-sm-3 col-form-label text-right tm-color-primary">Subject</label>
                     <div class="col-sm-9">
-                        <input class="form-control mr-0 ml-auto" name="subject" id="subject" type="text" required>
+                        <input class="form-control mr-0 ml-auto" name="title" id="subject" type="text" required>
                     </div>
                 </div>
                 <div class="form-group row mb-5">
@@ -50,41 +53,37 @@
         </div>
         <div class="col-lg-5 tm-contact-right">
             <address class="mb-4 tm-color-gray">
-                120 Lorem ipsum dolor sit amet,
-                consectetur adipiscing 10550
+                {{$setting->address}}
             </address>
             <span class="d-block">
                         Tel:
-                        <a href="tel:060-070-0980" class="tm-color-gray">060-070-0980</a>
+                        <a href="tel:{{$setting->phone}}" class="tm-color-gray">{{$setting->phone}}</a>
                     </span>
             <span class="mb-4 d-block">
                         Email:
-                        <a href="mailto:info@company.com" class="tm-color-gray">info@company.com</a>
+                        <a href="mailto:{{$setting->email}}" class="tm-color-gray">{{$setting->email}}</a>
                     </span>
             <p class="mb-5 tm-line-height-short">
-                Maecenas eu mi eu dui cursus
-                consequat non eu metus. Morbi ac
-                turpis eleifend, commodo purus
-                eget, commodo mauris.
+                {{$setting->contact_info}}
             </p>
             <ul class="tm-social-links">
                 <li class="mb-2">
-                    <a href="https://facebook.com" class="d-flex align-items-center justify-content-center">
+                    <a href="{{$setting->facebook}}" class="d-flex align-items-center justify-content-center">
                         <i class="fab fa-facebook"></i>
                     </a>
                 </li>
                 <li class="mb-2">
-                    <a href="https://twitter.com" class="d-flex align-items-center justify-content-center">
+                    <a href="{{$setting->twitter}}" class="d-flex align-items-center justify-content-center">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </li>
                 <li class="mb-2">
-                    <a href="https://youtube.com" class="d-flex align-items-center justify-content-center">
-                        <i class="fab fa-youtube"></i>
+                    <a href="{{$setting->linkedin}}" class="d-flex align-items-center justify-content-center">
+                        <i class="fab fa-linkedin"></i>
                     </a>
                 </li>
                 <li class="mb-2">
-                    <a href="https://instagram.com" class="d-flex align-items-center justify-content-center mr-0">
+                    <a href="{{$setting->instagram}}" class="d-flex align-items-center justify-content-center mr-0">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </li>
@@ -92,3 +91,11 @@
         </div>
     </div>
 @endsection
+
+@push('js')
+    <script>
+        setTimeout(() => {
+            document.getElementById('msg').style.display = "none"
+        }, 2000)
+    </script>
+@endpush

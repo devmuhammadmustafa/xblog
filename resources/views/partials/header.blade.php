@@ -5,7 +5,7 @@
         </button>
         <div class="tm-site-header">
             <div class="mb-3 mx-auto tm-site-logo"><i class="fas fa-times fa-2x"></i></div>
-            <h1 class="text-center">Xtra Blog</h1>
+            <h1 class="text-center">{{$setting->logo_path}}</h1>
         </div>
         <nav class="tm-nav" id="tm-nav">
             <ul>
@@ -24,21 +24,21 @@
             </ul>
         </nav>
         <div class="tm-mb-65">
-            <a rel="nofollow" href="https://fb.com/templatemo" class="tm-social-link">
+            <a rel="nofollow" href="{{$setting->facebook}}" class="tm-social-link">
                 <i class="fab fa-facebook tm-social-icon"></i>
             </a>
-            <a href="https://twitter.com" class="tm-social-link">
+            <a href="{{$setting->twitter}}" class="tm-social-link">
                 <i class="fab fa-twitter tm-social-icon"></i>
             </a>
-            <a href="https://instagram.com" class="tm-social-link">
+            <a href="{{$setting->instagram}}" class="tm-social-link">
                 <i class="fab fa-instagram tm-social-icon"></i>
             </a>
-            <a href="https://linkedin.com" class="tm-social-link">
+            <a href="{{$setting->linkedin}}" class="tm-social-link">
                 <i class="fab fa-linkedin tm-social-icon"></i>
             </a>
         </div>
         <p class="tm-mb-80 pr-5 text-white">
-            Xtra Blog is a multi-purpose HTML template from TemplateMo website. Left side is a sticky menu bar. Right side content will scroll up and down.
+            {{$setting->site_info}}
         </p>
     </div>
 </header>

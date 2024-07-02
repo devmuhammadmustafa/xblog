@@ -9,7 +9,7 @@
                     <div class="tm-post-link-inner">
                         <img src="{{$post->image}}" alt="Image" class="img-fluid">
                     </div>
-                    <span class="position-absolute tm-new-badge">New</span>
+                    <span class="position-absolute tm-new-badge">{{Helper::diffDays($post->created_at->timestamp)}}</span>
                     <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{$post->title}}</h2>
                 </a>
                 <p class="tm-pt-30">
