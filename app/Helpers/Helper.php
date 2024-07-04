@@ -13,6 +13,8 @@ class Helper
 
     public static function diffDays($timestamp)
     {
-        return Carbon::now();
+        $date = Carbon::createFromTimestamp($timestamp);
+        $daysDifference = $date->diffInDays(Carbon::now());
+        return $daysDifference;
     }
 }
