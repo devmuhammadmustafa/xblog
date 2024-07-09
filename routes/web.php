@@ -41,7 +41,7 @@ Route::prefix("cms")->name("admin.")->group(function () {
         Route::post('/store', [UserController::class, 'store'])->name("store");
         Route::get('/edit/{id}', [UserController::class, 'edit'])->name("edit");
         Route::post('/update', [UserController::class, 'update'])->name("update");
-        Route::get('/delete/{id}', [UserController::class, 'delete'])->name("delete");
+        Route::get('/delete/{user}', [UserController::class, 'delete'])->name("delete");
 
     });
 });

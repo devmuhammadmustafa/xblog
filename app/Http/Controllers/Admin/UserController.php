@@ -35,4 +35,9 @@ class UserController extends Controller
 
         return redirect()->back()->with("type", "success")->with("message", "User saved successfully!!!");
     }
+
+    public function delete(User $user) {
+        $user->delete();
+        return redirect()->back()->with("type", "success")->with("message", "User deleted successfully!!!");
+    }
 }
