@@ -26,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
             SettingComposer::class
         );
 
-        Paginator::defaultView('partials.paginate');
+        Paginator::defaultView('vendor.pagination.bootstrap-4');
     }
 }
