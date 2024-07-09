@@ -28,7 +28,11 @@
                 <tr>
                     <td>{{$user->name}}</td>
                     <td><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
-                    <td>{{$user->image}}</td>
+                    <td><div class="mr-3">
+                            <a href="#">
+                                <img src="{{$user->image_path}}" width="60" height="60" class="rounded-round" alt="">
+                            </a>
+                        </div></td>
 
                     <td><span class="badge badge-{{$user->is_active ? "success" : "danger"}}">{{$user->is_active ? "active" : "block"}}</span></td>
                     <td class="text-center">

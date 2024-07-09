@@ -23,6 +23,7 @@
                 </div>
 
                 <div class="card-body">
+                    @include("admin.partials.message")
                     <form action="{{route('admin.user.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">

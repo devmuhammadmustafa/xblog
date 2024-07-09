@@ -25,6 +25,14 @@ class UserController extends Controller
         $user->is_active = $request->is_active;
         $user->is_admin = $request->is_admin;
 
-//        $user->save();
+        if($request->file("image")) {
+            $fileName = time().'_'.$request->file("image")->getClientOriginalName();
+            $filePath = $request->file('image')->storeAs('uploads', $fileName, 'public');
+            $user->image = $fileName;
+            $user->image_path = '/storage/' . $filePath;
+        }
+        $user->save();
+
+        return redirect()->back()->with("type", "success")->with("message", "User saved successfully!!!");
     }
 }
