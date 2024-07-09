@@ -7,18 +7,10 @@
 @section("content")
     <div class="card">
         <div class="card-header header-elements-inline">
-            <h5 class="card-title">Basic datatable</h5>
+            <h5 class="card-title">User lists</h5>
             <div class="header-elements">
-                <div class="list-icons">
-                    <a class="list-icons-item" data-action="collapse"></a>
-                    <a class="list-icons-item" data-action="reload"></a>
-                    <a class="list-icons-item" data-action="remove"></a>
-                </div>
+                <a href="{{route('admin.user.create')}}" type="button" class="btn btn-primary">Default button</a>
             </div>
-        </div>
-
-        <div class="card-body">
-            The <code>DataTables</code> is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table. DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function. Searching, ordering, paging etc goodness will be immediately added to the table, as shown in this example. <strong>Datatables support all available table styling.</strong>
         </div>
 
         <table class="table datatable-basic">
@@ -41,7 +33,14 @@
                     <td><span class="badge badge-{{$user->is_active ? "success" : "danger"}}">{{$user->is_active ? "active" : "block"}}</span></td>
                     <td class="text-center">
                         <div class="list-icons">
-
+                            <div class="dropdown">
+                                <a href="{{route("admin.user.edit", $user->id)}}" class="list-icons-item" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="icon-database-edit2"></i>
+                                </a>
+                                <a href="{{route("admin.user.delete", $user->id)}}" class="list-icons-item" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="icon-trash"></i>
+                                </a>
+                            </div>
                         </div>
                     </td>
                 </tr>
