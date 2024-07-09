@@ -12,7 +12,7 @@
             <!-- Basic layout-->
             <div class="card">
                 <div class="card-header header-elements-inline">
-                    <h5 class="card-title">Basic layout</h5>
+                    <h5 class="card-title">User Create</h5>
                     <div class="header-elements">
                         <div class="list-icons">
                             <a class="list-icons-item" data-action="collapse"></a>
@@ -26,6 +26,7 @@
                     @include("admin.partials.message")
                     <form action="{{route('admin.user.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
+
                         <div class="form-group">
                             <label>Name:</label>
                             <input type="text" class="form-control" name="name" placeholder="Eugene Kopyov">
@@ -37,7 +38,7 @@
 
                         <div class="form-group">
                             <label>Password:</label>
-                            <input type="password" class="form-control" placeholder="Your strong password">
+                            <input type="password" class="form-control" name="password" placeholder="Your strong password">
                         </div>
 
                         <div class="form-group">

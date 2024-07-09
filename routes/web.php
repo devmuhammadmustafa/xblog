@@ -39,8 +39,8 @@ Route::prefix("cms")->name("admin.")->group(function () {
         Route::get('/', [UserController::class, 'index'])->name("index");
         Route::get('/create', [UserController::class, 'create'])->name("create");
         Route::post('/store', [UserController::class, 'store'])->name("store");
-        Route::get('/edit/{id}', [UserController::class, 'edit'])->name("edit");
-        Route::post('/update', [UserController::class, 'update'])->name("update");
+        Route::get('/edit/{user}', [UserController::class, 'edit'])->name("edit");
+        Route::put('/update/{user}', [UserController::class, 'update'])->name("update");
         Route::get('/delete/{user}', [UserController::class, 'delete'])->name("delete");
 
     });
