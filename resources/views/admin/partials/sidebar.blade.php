@@ -41,7 +41,7 @@
         <div class="card card-sidebar-mobile">
             <ul class="nav nav-sidebar" data-nav-type="accordion">
                 <li class="nav-item">
-                    <a href="{{route("admin.home")}}" class="nav-link active">
+                    <a href="{{route("admin.home")}}" class="nav-link {{Route::currentRouteName() == 'admin.home' ? 'active' : ''}}">
                         <i class="icon-home4"></i>
                         <span>
 									Dashboard
@@ -50,10 +50,28 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route("admin.user.index")}}" class="nav-link active">
+                    <a href="{{route("admin.user.index")}}" class="nav-link {{Route::currentRouteName() == 'admin.user.index' ? 'active' : ''}}">
                         <i class="icon-user"></i>
                         <span>
 									User
+								</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route("admin.category.index")}}" class="nav-link {{Route::currentRouteName() == 'admin.category.index' ? 'active' : ''}}">
+                        <i class="icon-user"></i>
+                        <span>
+									Category
+								</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route("admin.logout")}}" class="nav-link">
+                        <i class="icon-user"></i>
+                        <span>
+									Logout
 								</span>
                     </a>
                 </li>
