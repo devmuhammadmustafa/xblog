@@ -40,7 +40,7 @@
         <div class="card card-sidebar-mobile">
             <ul class="nav nav-sidebar" data-nav-type="accordion">
                 <li class="nav-item">
-                    <a href="{{route("admin.homepage")}}" class="nav-link active">
+                    <a href="{{route("admin.homepage")}}" class="nav-link {{Route::currentRouteName() == 'admin.homepage' ? 'active' : ''}}">
                         <i class="icon-home4"></i>
                         <span>
 									Homepage
@@ -48,10 +48,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route("admin.users.index")}}" class="nav-link active">
+                    <a href="{{route("admin.users.index")}}" class="nav-link {{Route::currentRouteName() == 'admin.users.index' ? 'active' : ''}}">
                         <i class="icon-user"></i>
                         <span>
 									Users
+								</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route("admin.logout")}}" class="nav-link  ">
+                        <i class="icon-exit"></i>
+                        <span>
+									Logout
 								</span>
                     </a>
                 </li>

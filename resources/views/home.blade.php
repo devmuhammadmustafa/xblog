@@ -29,7 +29,7 @@
                 <hr>
                 <div class="d-flex justify-content-between">
                     <span>{{$post->comments->count()}} comments</span>
-                    <span>by {{$post->user->name}}</span>
+                    <span>by {{$post->user?->name}}</span>
                 </div>
             </article>
         @endforeach
