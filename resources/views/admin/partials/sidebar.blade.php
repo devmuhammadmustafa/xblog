@@ -55,7 +55,23 @@
 								</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route("admin.category.index")}}" class="nav-link {{Route::currentRouteName() == 'admin.category.index' ? 'active' : ''}}">
+                        <i class="icon-menu"></i>
+                        <span>
+									Categories
+								</span>
+                    </a>
+                </li>
 
+                <li class="nav-item">
+                    <a href="{{route("admin.posts.index")}}" class="nav-link {{Route::currentRouteName() == 'admin.posts.index' ? 'active' : ''}}">
+                        <i class="icon-book"></i>
+                        <span>
+									Posts
+								</span>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{route("admin.logout")}}" class="nav-link  ">
                         <i class="icon-exit"></i>

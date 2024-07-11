@@ -1,15 +1,17 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Client\AboutController;
+use App\Http\Controllers\Client\CategoryController;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\Client\CommentController;
 use App\Http\Controllers\Client\ContactController;
 use App\Http\Controllers\Client\HomeController;
-use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Client\PostController;
+use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Client\SearchController;
-use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +57,24 @@ Route::prefix("cms")->middleware('check.admin')->name("admin.")->group(function 
         Route::get('/create', [UserController::class, 'create'])->name("create");
         Route::post('/store', [UserController::class, 'store'])->name("store");
         Route::get('/delete/{about}', [UserController::class, 'delete'])->name("delete");
+    });
+
+    Route::prefix("categories")->name("category.")->group(function () {
+        Route::get('/', [AdminCategoryController::class, 'index'])->name("index");
+        Route::get('/edit/{category}', [AdminCategoryController::class, 'edit'])->name("edit");
+        Route::put('/update/{category}', [AdminCategoryController::class, 'update'])->name("update");
+        Route::get('/create', [AdminCategoryController::class, 'create'])->name("create");
+        Route::post('/store', [AdminCategoryController::class, 'store'])->name("store");
+        Route::get('/delete/{category}', [AdminCategoryController::class, 'delete'])->name("delete");
+    });
+
+    Route::prefix("posts")->name("posts.")->group(function () {
+        Route::get('/', [AdminPostController::class, 'index'])->name("index");
+        Route::get('/edit/{post}', [AdminPostController::class, 'edit'])->name("edit");
+        Route::put('/update/{post}', [AdminPostController::class, 'update'])->name("update");
+        Route::get('/create', [AdminPostController::class, 'create'])->name("create");
+        Route::post('/store', [AdminPostController::class, 'store'])->name("store");
+        Route::get('/delete/{post}', [AdminPostController::class, 'delete'])->name("delete");
     });
 });
 
